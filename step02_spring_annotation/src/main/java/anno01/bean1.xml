@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 테스트 1 -->
+	<!-- <bean id="myFood" class="anno01.MyFoodMgr">
+		<property name="favoriteFood" ref="f1"></property>
+		<property name="unfavoriteFood" ref="f2"></property>
+	</bean>
+	
+	<bean id="f1" class="anno01.Food">
+		<property name="foodName" value="스파게티"></property>
+		<property name="foodPrice" value="15000"></property>
+	</bean>
+	<bean id="f2" class="anno01.Food">
+		<property name="foodName" value="팥죽"></property>
+		<property name="foodPrice" value="10000"></property>
+	</bean> -->
+	
+	<!-- 테스트 2 -->
+	<bean id="myFood" class="anno01.MyFoodMgr" autowire="byName"/>
+	<!-- public void setFavoriteFood(Food favoriteFood) 연결됨 -->
+	<bean id="favoriteFood" class="anno01.Food">
+		<property name="foodName" value="스파게티"></property>
+		<property name="foodPrice" value="15000"></property>
+	</bean>
+	<!-- public void setUnfavoriteFood(Food unfavoriteFood) 연결됨 -->
+	<bean id="unfavoriteFood" class="anno01.Food">
+		<property name="foodName" value="팥죽"></property>
+		<property name="foodPrice" value="10000"></property>
+	</bean>
+</beans>
+	

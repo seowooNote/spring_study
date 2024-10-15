@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="f1" class="sample5.Foo">
+		<constructor-arg value="테스트"></constructor-arg>
+	</bean>
+	
+	<!-- index 속성을 안넣으면 태그 순서와 파라미터 순서와 동일 -->
+	<bean id="f2" class="sample5.Foo">
+		<constructor-arg index="0" value="100"></constructor-arg>
+		<constructor-arg index="1" value="Korea"></constructor-arg>
+	</bean>
+	
+	<bean id="f3" class="sample5.Foo">
+		<constructor-arg value="헬로우"></constructor-arg>
+		<constructor-arg value="50"></constructor-arg>
+		<constructor-arg value="false"></constructor-arg>
+	</bean>
+	
+	<bean id="f4" class="sample5.Foo">
+		<constructor-arg index="0" type="java.lang.String" value="헬로우"></constructor-arg>
+		<constructor-arg index="1" type="int" value="50"></constructor-arg>
+		<constructor-arg index="2" type="boolean" value="true"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="f5" class="sample5.Foo">
+		<constructor-arg>
+			<ref bean="bar"/>
+		</constructor-arg>
+	</bean>
+	<bean id="bar" class="sample5.Bar"></bean>
+	<!-- 
+		Foo f1 = new Foo("테스트");
+		Foo f2 = new Foo(100, "korea");
+		Foo f1 = new Foo("헬로우", 50, false);
+		Foo f1 = new Foo("스프링", 10, true);
+		Foo f1 = new Foo(bar);
+	-->
+</beans>
+
